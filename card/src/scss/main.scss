@@ -2,7 +2,9 @@
     font-size: 16px;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -41,14 +43,13 @@ img {
 
     &__wrapper {
         overflow: hidden;
-        background-color: pink;
         height: 250px;
         border-radius: .4rem;
 
         &__image {
             transition: .5s all ease;
             height: 100%;
-    
+
             &:hover {
                 transform: scale(1.2);
                 filter: grayscale(1);

@@ -2,7 +2,9 @@
   font-size: 16px;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
@@ -46,7 +48,6 @@ img {
 
 .card__wrapper {
   overflow: hidden;
-  background-color: pink;
   height: 250px;
   border-radius: .4rem;
 }
