@@ -1,0 +1,122 @@
+:root {
+    font-size: 16px;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    vertical-align: baseline;
+    font-family: inherit;
+    font-size: inherit;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    color: inherit;
+}
+
+@mixin respond ($breakpoint) {
+    @if $breakpoint==tablet {
+        @media (min-width: 768px) {
+            @content;
+        }
+    }
+
+    @if $breakpoint==desktop {
+        @media (min-width: 992px) {
+            @content;
+        }
+    }
+}
+
+.navbar {
+    position: fixed;
+    width: 100%;
+    background-color: white;
+    z-index: 3;
+    padding: 1rem 2rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    @include respond(tablet) {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &__logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        &__menu {
+            @include respond(tablet) {
+                display: none;
+            }
+            background: none;
+
+            &__icon {
+                max-width: 2rem;
+            }
+        }
+    }
+
+    &__items {
+        display: none;
+
+        &.active {
+            display: block;
+        }
+
+        @include respond(tablet) {
+            display: flex;
+            align-items: center;
+            padding: 0;
+        }
+        padding: 1rem 0;
+        list-style: none;
+        background-color: white;
+
+        &__link {
+            padding: .8rem 0;
+            margin-right: 0;
+            @include respond(tablet) {
+                margin-right: 1.8rem;
+            }
+
+            &--button {
+                padding: .8rem 1.5rem;
+                border-radius: .5rem;
+                text-align: center;
+
+                &:nth-child(1) {
+                    background-color: hsl(0, 0%, 80%);
+                    color: black;
+                    margin-bottom: 1rem;
+                    @include respond(tablet) {
+                        margin-right: .8rem;
+                        margin-bottom: 0;
+                    }
+                }
+
+                &:nth-child(2) {
+                    background-color: black;
+                    color: white;
+                }
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+
+        &:nth-child(2) {
+            margin-top: 1rem;
+            @include respond(tablet) {
+                margin-top: 0;
+            }
+        }
+    }
+}
