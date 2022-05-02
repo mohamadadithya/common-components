@@ -3,7 +3,7 @@ const prevButton = document.getElementById('prev');
 const nextButton = document.getElementById('next');
 const indicator = document.querySelector('.indicator');
 
-let slidesCount = 5;
+let slidesCount = slides.length;
 let currentSlide = 0;
 
 const handle = (status) => {
